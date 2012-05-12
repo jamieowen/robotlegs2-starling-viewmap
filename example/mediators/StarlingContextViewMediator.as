@@ -1,11 +1,10 @@
-package mediators{
-	import starling.display.DisplayObject;
-	import robotlegs.extensions.starlingViewMap.api.IStarlingMediator;
+package mediators {
+	import robotlegs.bender.extensions.mediatorMap.api.IMediator;
 
 	/**
 	 * @author jamieowen
 	 */
-	public class StarlingContextViewMediator implements IStarlingMediator
+	public class StarlingContextViewMediator implements IMediator
 	{
 		
 		public function StarlingContextViewMediator()
@@ -13,19 +12,19 @@ package mediators{
 			
 		}
 		
-		public function set starling_viewComponent(view:DisplayObject):void
+		public function set viewComponent(view:Object):void
 		{
-			trace( "starling view comp : " + view + " " + this );
+			trace( "rl2 view comp : " + view + " " + this );
 		}
 
-		public function starling_initialize():void
+		public function initialize():void
 		{
-			trace( "starling initialise : " + this );
+			trace( "rl2 initialise : " + this );
 		}
 
-		public function starling_destroy():void
+		public function destroy():void
 		{
-			trace( "starling destroy " + this );
+			trace( "rl2 destroy " + this );
 		}
 	}
 }

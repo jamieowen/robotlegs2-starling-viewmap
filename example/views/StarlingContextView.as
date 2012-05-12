@@ -1,7 +1,8 @@
-package views{
-	import flash.utils.setTimeout;
-	import starling.events.Event;
+package views {
 	import starling.display.Sprite;
+	import starling.events.Event;
+
+	import flash.utils.setTimeout;
 
 	/**
 	 * @author jamieowen
@@ -29,7 +30,7 @@ package views{
 			
 			setTimeout( function():void
 			{
-				removeChild( sprite );
+				removeChild( subView );
 			}, 3000 );
 		}
 	}

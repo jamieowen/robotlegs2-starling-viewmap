@@ -7,15 +7,12 @@
 
 package robotlegs.extensions.starlingViewMap.impl
 {
-	import robotlegs.extensions.starlingViewMap.api.IStarlingMediator;
-	import robotlegs.bender.extensions.mediatorMap.api.MediatorFactoryEvent;
-	import robotlegs.bender.extensions.mediatorMap.api.IMediatorFactory;
-	import starling.events.Event;
 	import robotlegs.bender.extensions.mediatorMap.api.IMediatorMap;
-	import starling.core.Starling;
 	import robotlegs.extensions.starlingViewMap.api.IStarlingViewMap;
 
+	import starling.core.Starling;
 	import starling.display.DisplayObject;
+	import starling.events.Event;
 
 	/**
 	 * 
@@ -36,8 +33,6 @@ package robotlegs.extensions.starlingViewMap.impl
 		[Inject]
 		public var mediatorMap:IMediatorMap;
 		
-		[Inject]
-		public var mediatorFactory:IMediatorFactory;
 				
 		/*============================================================================*/
 		/* Private Properties                                                         */
@@ -57,22 +52,12 @@ package robotlegs.extensions.starlingViewMap.impl
 		[PostConstruct]
 		public function init():void
 		{	
-			// listen for mediator create events to call initialise(), set view component etc.
-			// via the IStarlingMediator interface
-			
-			// Note: listening for MEDIATOR_CREATE events is normally carried out in the DefaultMediatorManager in RL2
-			// the standard set viewComponent and initialize() would work if the DefaultMediatorManager.initializeMediator() method did not cast to flash.display.DisplayObject
-			
-
-			mediatorFactory.addEventListener( MediatorFactoryEvent.MEDIATOR_CREATE, onMediatorCreate );
-			mediatorFactory.addEventListener( MediatorFactoryEvent.MEDIATOR_REMOVE, onMediatorRemove );
-			
 			// listen for display object events
 			starling.stage.addEventListener( Event.ADDED, onStarlingAdded );
 			starling.stage.addEventListener( Event.REMOVED, onStarlingRemoved );
 			
-			// add stage as view to allow a Starling Stage Mediator.
-			addStarlingView( starling.stage );
+			// adds stage as view to allow a Starling Stage Mediator.
+			starling.addEventListener( Event.ROOT_CREATED, onRootCreated );
 		}
 		
 		/*============================================================================*/
@@ -103,31 +88,11 @@ package robotlegs.extensions.starlingViewMap.impl
 			removeStarlingView( event.target as DisplayObject );
 		}
 		
-		private function onMediatorCreate( event:MediatorFactoryEvent ):void
+		private function onRootCreated( event:Event ):void
 		{
-			initializeMediator(event.view as DisplayObject, event.mediator as IStarlingMediator );
-		}
-		
-		private function onMediatorRemove( event:MediatorFactoryEvent ):void
-		{
-			destroyMediator( event.mediator as IStarlingMediator );
-		}
-		
-		private function initializeMediator(view:DisplayObject, mediator:IStarlingMediator):void
-		{
-			if( mediator )
-			{
-				mediator.starling_viewComponent = view;
-				mediator.starling_initialize();
-			}
-		}
-		
-		private function destroyMediator( mediator:IStarlingMediator ):void
-		{
-			if( mediator )
-			{
-				mediator.starling_destroy();
-			}
+			starling.removeEventListener( Event.ROOT_CREATED, onRootCreated );
+			
+			addStarlingView( starling.stage );
 		}
 	}
 }

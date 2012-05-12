@@ -3,14 +3,13 @@
 A test extension to enable mapping of Starling DisplayObject's to
 the RL2 MediatorMap in the simplest way possible
 
+See the Readme.md file inside the src/robotlegs/extensions/starlingViewMap for more info.
+
 ## WIP
 
-This is a work in progress but provides basic functionality until RL2 is released.
+This is a work in progress but provides basic functionality.
 
 ## Requirements
 
-The standard RL2 dependencies : SwiftSuspenders / Hamcrest / etc
-
-## See
-
-See the Readme.md file inside the src/robotlegs/extensions/starlingViewMap for more info.
++ RL2 dependencies : SwiftSuspenders / Hamcrest / etc
++ Starling 1.1
