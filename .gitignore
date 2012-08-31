@@ -11,3 +11,5 @@ lib
 .flexProperties
 .settings/
 .project
+
+.DS_Store
