@@ -11,6 +11,4 @@ sdk = flex.SDK('4.6.0 build 23201')
 
 sdk.swc('robotlegs2-starling-viewmap-2.0.0b4', 
         output='bin/robotlegs2-starling-viewmap-2.0.0b4.swc', 
-        requires=[l[:-4] for l in os.listdir('libs/') if l.endswith('swc')],
-        #args=['-static-link-runtime-shared-libraries=true', '-debug'])
-        )
+        external=[l[:-4] for l in os.listdir('libs/') if l.endswith('swc')])
