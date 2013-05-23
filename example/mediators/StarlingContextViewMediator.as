@@ -15,13 +15,13 @@ package mediators {
 		override public function initialize():void
 		{
 			super.initialize();
-			trace( "rl2 initialise : " + this );
+			trace( this + ", " + "initialise()" );
 		}
 
 		override public function destroy():void
 		{
 			super.initialize();
-			trace( "rl2 destroy " + this );
+			trace( this + ", " + "destroy()" );
 		}
 	}
 }

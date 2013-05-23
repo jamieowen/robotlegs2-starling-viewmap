@@ -16,7 +16,7 @@ package views {
 			addEventListener(Event.ADDED_TO_STAGE, init );
 		}
 		
-		private function init(ev:Event = null):void
+		private function init(event:Event = null):void
 		{
 			removeEventListener( Event.ADDED_TO_STAGE, init );
 			
@@ -31,7 +31,7 @@ package views {
 			setTimeout( function():void
 			{
 				removeChild( subView );
-			}, 3000 );
+			}, 1000 );
 		}
 	}
 }

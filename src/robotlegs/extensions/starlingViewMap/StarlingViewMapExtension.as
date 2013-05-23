@@ -13,10 +13,10 @@ package robotlegs.extensions.starlingViewMap
 	import robotlegs.bender.framework.impl.UID;
 	import robotlegs.extensions.starlingViewMap.api.IStarlingViewMap;
 	import robotlegs.extensions.starlingViewMap.impl.StarlingViewMap;
-
+	import robotlegs.bender.extensions.matching.instanceOfType;
+	
 	import starling.core.Starling;
 
-	import org.hamcrest.object.instanceOf;
 
 	/**
 	 * Basic StarlingView Extension.
@@ -57,14 +57,9 @@ package robotlegs.extensions.starlingViewMap
 		public function extend(context : IContext) : void
 		{
 			_context = context;
-			_context.addConfigHandler(instanceOf(Starling), handleStarling);
+			_context.addConfigHandler(instanceOfType(Starling), handleStarling);
 			
 			_context.injector.map( IStarlingViewMap).toSingleton(StarlingViewMap);
-		}
-		
-		public function toString():String
-		{
-			return _uid;
 		}
 	
 		/*============================================================================*/
