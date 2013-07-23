@@ -54,9 +54,9 @@ uploadArchives {
             repository(url: repoUrl) {
                     authentication(userName: repoUserName, password: repoPassword)
                 }
-            pom.version = "0.1.1-SNAPSHOT"
-            pom.artifactId = "greyrook-flash"
-            pom.groupId = "com.greyrook"
+            pom.version = "0.1-SNAPSHOT"
+            pom.artifactId = "robotlegs-starling-viewmap"
+            pom.groupId = "com.github"
         }
     }
 }
