@@ -46,7 +46,6 @@ srcDirs = ['src/']
 
 buildDir = 'bin'
 
-/*
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -59,4 +58,3 @@ uploadArchives {
         }
     }
 }
-*/
