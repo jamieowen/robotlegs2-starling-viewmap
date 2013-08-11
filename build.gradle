@@ -23,6 +23,9 @@ repositories {
 
 dependencies {
     flexSDK group: 'org.apache', name: 'apache-flex-sdk', version: '4.9.1', ext: 'zip'
+    external files('libs/starling-1.3.swc')
+    external files('libs/robotlegs-framework-v2.1.0.swc')
+    external files('libs/Swiftsuspenders-v2.0.0rc3.swc')
 }
 
 sdkAutoInstall {
@@ -32,15 +35,6 @@ sdkAutoInstall {
 additionalCompilerOptions = [
   '-target-player=11.1',
 ]
-
-
-afterEvaluate {
-    additionalCompilerOptions = [
-        "-external-library-path+=$project.projectDir/libs/robotlegs-framework-v2.1.0.swc",
-        "-external-library-path+=$project.projectDir/libs/starling-1.3.swc",
-        "-external-library-path+=$project.projectDir/libs/Swiftsuspenders-v2.0.0rc3.swc"
-    ]
-}
 
 srcDirs = ['src/']
 
