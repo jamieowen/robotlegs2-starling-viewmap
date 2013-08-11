@@ -1,5 +1,6 @@
 package 
 {
+	import robotlegs.bender.extensions.contextView.ContextView;
 	import flash.display.Sprite;
 	import flash.display.StageAlign;
 	import flash.display.StageScaleMode;
@@ -17,6 +18,8 @@ package
 	 */
 	public class StarlingExtensionExample extends Sprite
 	{
+		private var _context:IContext;
+		
 		public function StarlingExtensionExample()
 		{
 			stage.align 		= StageAlign.TOP_LEFT;
@@ -29,11 +32,10 @@ package
 		{
 			const starling:Starling = new Starling(StarlingContextView, stage);
 			
-			const context:IContext = new Context()
-				.extend( MVCSBundle, StarlingViewMapExtension )
-				.configure( StarlingConfig, 
-							this,
-							starling );
+			_context = new Context()
+				.install( MVCSBundle, StarlingViewMapExtension )
+				.configure(StarlingConfig, new ContextView( this ), starling);
+				
 		}
 	}
 }

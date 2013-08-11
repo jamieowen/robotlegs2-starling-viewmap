@@ -22,6 +22,11 @@ package robotlegs.extensions.starlingViewMap.impl {
 			_viewComponent = view;
 		}
 		
+		public function get viewComponent():Object
+		{
+			return _viewComponent;
+		}
+		
 		public function initialize() : void
 		{
 			
