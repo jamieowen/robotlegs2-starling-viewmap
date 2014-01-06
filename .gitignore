@@ -12,4 +12,5 @@ lib
 .settings/
 .project
 
+.gradle
 .DS_Store

@@ -11,5 +11,5 @@ This is a work in progress but provides basic functionality.
 
 ## Requirements
 
-+ RL2 dependencies : SwiftSuspenders / Hamcrest / etc
-+ Starling 1.1
++ RL2 dependencies : SwiftSuspenders
++ Starling 1.4.1
