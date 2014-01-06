@@ -40,6 +40,8 @@ srcDirs = ['src/']
 
 buildDir = 'bin'
 
+output = 'robotlegs2-starling-viewmap'
+
 uploadArchives {
     repositories {
         mavenDeployer {
@@ -47,7 +49,7 @@ uploadArchives {
                     authentication(userName: repoUserName, password: repoPassword)
                 }
             pom.version = "0.1-SNAPSHOT"
-            pom.artifactId = "robotlegs-starling-viewmap"
+            pom.artifactId = "robotlegs2-starling-viewmap"
             pom.groupId = "com.github"
         }
     }
