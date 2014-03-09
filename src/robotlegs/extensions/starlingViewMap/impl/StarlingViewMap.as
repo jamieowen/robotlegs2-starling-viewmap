@@ -60,6 +60,14 @@ package robotlegs.extensions.starlingViewMap.impl
 			starling.addEventListener( Event.ROOT_CREATED, onRootCreated );
 		}
 		
+		[PreDestroy]
+		public function destroy():void
+		{
+			starling.stage.removeEventListener( Event.ADDED, onStarlingAdded );
+			starling.stage.removeEventListener( Event.REMOVED, onStarlingRemoved );
+			starling.removeEventListener( Event.ROOT_CREATED, onRootCreated );
+		}
+		
 		/*============================================================================*/
 		/* Public Methods
 		/*============================================================================*/
