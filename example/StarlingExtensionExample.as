@@ -35,7 +35,8 @@ package
 			_context = new Context()
 				.install( MVCSBundle, StarlingViewMapExtension )
 				.configure(StarlingConfig, new ContextView( this ), starling);
-				
+			
+			starling.start();	
 		}
 	}
 }
